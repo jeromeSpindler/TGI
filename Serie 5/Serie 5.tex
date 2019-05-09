@@ -1,7 +1,12 @@
 \documentclass{article}
 
-\usepackage{import}
-\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+% \setlength{\parindent}{0pt}
+
+\setcounter{secnumdepth}{0}
 
 \title{Übungsblatt 5 Lösungen}
 \author{Jerome Spindler, Niklas Carstensen}
@@ -11,18 +16,64 @@
 
 \section{Hausaufgabe 1}
 
-% TODO
+TODO
 
 \section{Hausaufgabe 2}
 
-% TODO
+a)
+ 
+G = (V, $\Sigma$, P, S) 
+
+V = {S} 
+
+$\Sigma$ = {a,b,(,),*,·} 
+
+P:    S $\rightarrow$ a | b | (S) | S* | S·S | S|S 
+
+S = S 
+\\ 
+b)
+
+$S \rightarrow S \mid S \rightarrow a \mid S \rightarrow a \mid a$
+
+S $\rightarrow$ S·S $\rightarrow$ a·S $\rightarrow$ a·S* 
+$\rightarrow$ a·b*
+
+$S \rightarrow S^* \rightarrow (S)^* \rightarrow (S \mid S)^* 
+\rightarrow (a \mid S)^* \rightarrow (a \mid b)^*$
 
 \section{Hausaufgabe 3}
 
-% TODO
+a)
+
+$L_{1} = \{w \in \Sigma^* \mid c \in w \implies 
+c = \rightarrow \lor \: c = \downarrow \}$
+
+$L_{2} = \{w \in \Sigma^* \mid \forall i \in 
+\mathbb{N} : 2 \leq i \leq \left| w \right|_i : 
+(w_i = \uparrow \implies w_{i+1} = \leftarrow \land
+w_i = \leftarrow \implies w_{i+1} = \downarrow \land
+w_i = \downarrow \implies w_{i+1} = \rightarrow \land
+w_i = \rightarrow \implies w_{i+1} = \uparrow \land )\}$
+
+$L_{3} = \{w \in \Sigma^* \mid (\forall u,v \in \Sigma^* :
+uv = w : \left| u \right|_\uparrow \geq \left| u \right|_\downarrow) \}$
+\\
+b)
+
+$L_{1} = (\rightarrow^* \downarrow^*)^* $, was nach 2.42 regulär ist.
+
+$L_{2} = (\downarrow^+\rightarrow^+\uparrow^+\leftarrow^+)^+ 
+\mid (\rightarrow^+\uparrow^+\leftarrow^+\downarrow^+)^+
+\mid (\uparrow^+\leftarrow^+\downarrow^+\rightarrow^+)^+
+\mid (\leftarrow^+\downarrow^+\rightarrow^+\uparrow^+)^+ $, 
+was nach 2.42 regulär ist.
+
+$L_{3}$ ist nicht regulär, da man die unbeschränkte 'Haushöhe'
+zählen müsste.
 
 \section{Hausaufgabe 4}
 
-% TODO
+TODO
 
 \end{document}
