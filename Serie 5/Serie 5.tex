@@ -28,7 +28,7 @@ V = {S}
 
 $\Sigma$ = {a,b,(,),*,·} 
 
-P:    S $\rightarrow$ a | b | (S) | S* | S·S | S|S 
+P: $S \rightarrow a \mid b \mid (S) \mid S* \mid S·S \mid S|S$
 
 S = S 
 \\ 
@@ -74,6 +74,36 @@ zählen müsste.
 
 \section{Hausaufgabe 4}
 
-TODO
+a)
+
+G = (V, $\Sigma$, P, S) 
+
+V = {S} 
+
+$\Sigma$ = {0,1} 
+
+P: $S \rightarrow 0S1 \mid 1S0 \mid \epsilon$
+
+S = S 
+\\
+b)
+
+G = (V, $\Sigma$, P, S) 
+
+V = {S,T,U,V} 
+
+$\Sigma$ = {a,b,c,d} 
+
+P:  
+
+$S \rightarrow aSd \mid T \mid U$
+
+$T \rightarrow aTc \mid V$
+
+$U \rightarrow bUd \mid V$
+
+$V \rightarrow bVc$
+
+S = S 
 
 \end{document}
