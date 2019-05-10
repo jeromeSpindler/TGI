@@ -3,6 +3,9 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
+\usepackage[ansinew]{inputenc} %Windows Umlaute
+\usepackage[latin1]{inputenc}  %Linux Umlaute
+\usepackage[applemac]{inputenc}%Mac Umlaute
 
 % \setlength{\parindent}{0pt}
 
@@ -22,39 +25,54 @@ TODO
 
 a)
  
-G = (V, $\Sigma$, P, S) 
+Definiere KFG G:= (V, $\Sigma$, P, S) mit
 
-V = {S} 
+V = \{S\} ,
 
-$\Sigma$ = {a,b,(,),*,·} 
+$\Sigma$ = \{a,b,(,),*,·\}$ ,
 
-P: $S \rightarrow a \mid b \mid (S) \mid S* \mid S·S \mid S|S$
+P:= $\{ S \rightarrow a \mid b \mid (S) \mid S* \mid S·S \mid S|S \}$ ,
 
-S = S 
+S = $\{S\}$ 
 \\ 
 b)
 
-$S \rightarrow S \mid S \rightarrow a \mid S \rightarrow a \mid a$
+$S \Rightarrow_{L} S \mid S \Rightarrow_{L} a \mid S \Rightarrow_{L} a \mid a$
 
-S $\rightarrow$ S·S $\rightarrow$ a·S $\rightarrow$ a·S* 
-$\rightarrow$ a·b*
+S $\Rightarrow_{L}$ S·S $\Rightarrow_{L}$ a·S $\Rightarrow_{L}$ a·S* 
+$\Rightarrow_{L}w$ a·b*
 
-$S \rightarrow S^* \rightarrow (S)^* \rightarrow (S \mid S)^* 
-\rightarrow (a \mid S)^* \rightarrow (a \mid b)^*$
+$S \Rightarrow_{L} S^*\Rightarrow_{L} (S)^*\Rightarrow_{L} (S \mid S)^* 
+\Rightarrow_{L} (a \mid S)^* \Rightarrow_{L} (a \mid b)^*$
 
 \section{Hausaufgabe 3}
 
 a)
+Wir nehmen für $L_{1}$ an, dass der erste Buchstabe $\rightarrow$ sein muss.
 
-$L_{1} = \{w \in \Sigma^* \mid c \in w \implies 
-c = \rightarrow \lor \: c = \downarrow \}$
+$L_{1} = \{w \in \Sigma^* \mid w = \epsilon \lor (w_{1} = \rightarrow \land \forall i \in \mathbb{N}:1 \leq  i \leq\ (|w| -1}) \implies$
 
-$L_{2} = \{w \in \Sigma^* \mid \forall i \in 
-\mathbb{N} : 2 \leq i \leq \left| w \right|_i : 
-(w_i = \uparrow \implies w_{i+1} = \leftarrow \land
-w_i = \leftarrow \implies w_{i+1} = \downarrow \land
-w_i = \downarrow \implies w_{i+1} = \rightarrow \land
-w_i = \rightarrow \implies w_{i+1} = \uparrow \land )\}$
+$((w_{i} = \rightarrow \implies w_{i+1} = \downarrow) \land$
+
+$(w_{i} = \downarrow \implies w_{i+1} = \rightarrow))) \}$ 
+
+
+
+Wir nehmen für $L_{2}$ an, dass der erste Buchstabe beliebig ist.
+
+$L_{2} = \{w \in \Sigma^* \mid w_1 \in \Sigma_{\epsilon} \land \forall i \in \mathbb{N} :2 \leq i \leq \left| w \right| \implies$
+
+$((w_{i-1} = \uparrow \implies w_i = \uparrow \lor w_i = \leftarrow) \land$
+
+$(w_{i-1} = \leftarrow \implies w_i = \leftarrow \lor w_i = \downarrow) \land$
+
+$(w_{i-1} = \downarrow \implies w_i = \downarrow \lor w_i = \rightarrow) \land$
+
+$(w_{i-1} = \rightarrow \implies w_i = \rightarrow \lor w_i = \uparrow )\}$
+
+Wir nehmen an, dass der erste Buchstabe $\rightarrow$ sein muss und dass die 
+
+"Dächer" nicht die Breite 0 haben dürfen.
 
 $L_{3} = \{w \in \Sigma^* \mid (\forall u,v \in \Sigma^* :
 uv = w : \left| u \right|_\uparrow \geq \left| u \right|_\downarrow) \}$
