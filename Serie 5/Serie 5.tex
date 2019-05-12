@@ -19,10 +19,10 @@
 
 \section{Hausaufgabe 1}
 
-Voraussetzung: Sei $L_1 = \{a^{n \cdot m} \mid n,m \in N_{>1} \} \cup \{a, \epsilon\}$ eine Sprache.\\
-Behauptung: $L_1$ ist nicht regulär.\\
+$Voraussetzung:$ Sei $L_1 = \{a^{n \cdot m} \mid n,m \in N_{>1} \} \cup \{a, \epsilon\}$ eine Sprache.\\
+$Behauptung:$ $L_1$ ist nicht regulär.\\
 \\
-Beweis: (mittels Pumping-Lemma)\\
+$Beweis:$ (mittels Pumping-Lemma)\\
 Da reguläre Sprachen abgeschlossen gegenbüber Komplementbildung sind,\\
 zeige dass $\overline{L_1}$ nicht regulär ist. Es gilt offenbar:\\
 $\overline{L_1} = \{a^n \mid \textrm{n ist Primzahl}\}$\\
@@ -32,8 +32,7 @@ Sei $p \in \mathbb{N}$ beliebig und $w \in \overline{L_1}$. Wir unterscheiden:\\
 da wir wissen, dass mindestens eine dieser beiden Zahlen eine Primzahl ist.\\
 Demnach existiert zwischen diesen zwei Zahlen eine Lücke mit Größe $\geq p + 1$.\\
 Seien $x,y,z \in \Sigma^*$ ,sodass gilt: $w = xyz \land |y| > 0 \land |xy| \leq p$. Es folgt:\\
-Zu (1):\\
-Behaupte: Es gilt $xy^2z \notin \overline{L_1$.\\
+Zu (1):Behaupte: Es gilt $xy^2z \notin \overline{L_1$.\\
 Beweis: Anhand der Definition von $|w|$ wissen wir, dass $|w| -1$ geteilt wird\\
 von allen $n \in \mathbb{N}$ für, die gilt $2\leq n \leq p+1$. Somit folgt, dass für alle diese n gilt:\\
 $n|(p+1! +n) \Leftrightarrow n|((|w| -1) + n \Leftrightarrow n| (|w| + (n-1))$\\
@@ -41,8 +40,7 @@ Berücksichtigen wir nun die -1 für unsere Abschätzung von n folgt:\\
 $\forall n \in \mathbb{n}: 1 \leq n \leq p \implies |w| + n \quad \textrm{nicht prim}$\\
 Woraus folgt, dass für y mit $1 \leq |y| \leq p$ gilt, dass $xy^2z \notin \overline{L_1}$ .\\
 Somit ist $\overline{L_1}$ nicht regulär und auch $L_1$ nicht regulär.\\
-Zu(2):\\
-Behaupte: Es gilt $xy^0z \notin \overline{L_1}$.\\
+Zu(2):Behaupte: Es gilt $xy^0z \notin \overline{L_1}$.\\
 Beweis: Anhand der Definition von $|w|$ wissen wir, dass $|w| -1$ geteilt wird\\
 von $p+1$. Desweiteren wissen wir, dass für alle $n \in \mathbb{N}$ mit $0 \leq n \leq p-1$ gilt:\\
 $((p+1) - n) | ((p+1)! + (p + 1 - n)) \Leftrightarrow ((p+1) -n) | (|w| -1 -n) \Leftrightarrow (p+1) -n | (|w| - (n + 1)$\\
@@ -78,6 +76,7 @@ $S \Rightarrow_{L} S^*\Rightarrow_{L} (S)^*\Rightarrow_{L} (S \mid S)^*
 \section{Hausaufgabe 3}
 
 a)
+
 Wir nehmen für $L_1$ an, dass der erste Buchstabe $\rightarrow$ sein muss.
 
 $L_{1} = \{w \in \Sigma^* \mid w = \epsilon \lor (w_{1} = \rightarrow \land \forall i \in \mathbb{N}:1 \leq  i \leq\ (|w| -1}) \implies$
@@ -98,11 +97,8 @@ $(w_{i-1} = \leftarrow \implies w_i = \leftarrow \lor w_i = \downarrow) \land$
 
 $(w_{i-1} = \downarrow \implies w_i = \downarrow \lor w_i = \rightarrow) \land$
 
-$(w_{i-1} = \rightarrow \implies w_i = \rightarrow \lor w_i = \uparrow )\}$
-\\
-\\
-\\
-\\
+$(w_{i-1} = \rightarrow \implies w_i = \rightarrow \lor w_i = \uparrow )\}$\\
+
 
 Wir nehmen für $L_3$ an, dass der erste und letzte Buchstabe $\rightarrow$ sein 
 
@@ -119,11 +115,11 @@ $\forall i_1 , i_2 \in \mathbb{N}: (1 < i_1 < i_2 < |w| \land (w_{i_1} = \uparro
 \land w_{i_2} = \downarrow )\lor (w_{i_1} = \downarrow
 \land w_{i_2} = \uparrow )  ) \implies$
 
-$\exists j \in \mathbb{N}: i_1 < j < i_2 \land w_j = \rightarrow ) \}$
+$\exists j \in \mathbb{N}: i_1 < j < i_2 \land w_j = \rightarrow ) \}$\\
 \\
 b)
 
-$L_{1} = (\rightarrow (\rightarrow \downarrow)^*)^* $, was nach 2.42 regulär ist.
+$L_{1} = (\rightarrow (\rightarrow \downarrow)^*)^* $, was nach 2.42 regulär ist.\\
 
 $L_{2} = (\downarrow^+\rightarrow^+\uparrow^+\leftarrow^+)^* 
 \mid (\rightarrow^+\uparrow^+\leftarrow^+\downarrow^+)^*
@@ -131,11 +127,13 @@ $L_{2} = (\downarrow^+\rightarrow^+\uparrow^+\leftarrow^+)^*
 
 $(\uparrow^+\leftarrow^+\downarrow^+\rightarrow^+)^*
 \mid (\leftarrow^+\downarrow^+\rightarrow^+\uparrow^+)^* $, 
-was nach 2.42 regulär ist.
+was nach 2.42 regulär ist.\\
 
 $L_{3}$ ist nicht regulär, da man die unbeschränkte 'Haushöhe'zählen und für
 
-jeden $\uparrow$ einen $\downarrow$ Partner finden müsste.
+jeden $\uparrow$ einen $\downarrow$ Partner finden müsste.\\
+\\
+\\
 \\
 c)
 
@@ -189,8 +187,6 @@ $\quad \quad T \rightarrow \quad \uparrow T \downarrow \mid \uparrow R \downarro
 $\quad \quad R \rightarrow \quad \rightarrow \mid \rightarrow R\}$
 
 $S_3 = \{S\}$
-\\
-\\
 
 \section{Hausaufgabe 4}
 
