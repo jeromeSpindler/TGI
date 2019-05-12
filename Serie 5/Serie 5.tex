@@ -27,11 +27,11 @@ a)
  
 Definiere KFG G:= (V, $\Sigma$, P, S) mit
 
-V = \{S\} ,
+V = $\{S\}$ ,
 
 $\Sigma$ = \{a,b,(,),*,·\}$ ,
 
-P:= $\{ S \rightarrow a \mid b \mid (S) \mid S* \mid S·S \mid S|S \}$ ,
+P:= $\{ S \rightarrow a \mid b \mid (S) \mid S^* \mid S·S \mid S|S \}$ ,
 
 S = $\{S\}$ 
 \\ 
@@ -48,17 +48,17 @@ $S \Rightarrow_{L} S^*\Rightarrow_{L} (S)^*\Rightarrow_{L} (S \mid S)^*
 \section{Hausaufgabe 3}
 
 a)
-Wir nehmen für $L_{1}$ an, dass der erste Buchstabe $\rightarrow$ sein muss.
+Wir nehmen für $L_1$ an, dass der erste Buchstabe $\rightarrow$ sein muss.
 
 $L_{1} = \{w \in \Sigma^* \mid w = \epsilon \lor (w_{1} = \rightarrow \land \forall i \in \mathbb{N}:1 \leq  i \leq\ (|w| -1}) \implies$
 
 $((w_{i} = \rightarrow \implies w_{i+1} = \downarrow) \land$
 
-$(w_{i} = \downarrow \implies w_{i+1} = \rightarrow))) \}$ 
+$(w_{i} = \downarrow \implies w_{i+1} = \rightarrow))) \}$\\
 
+\\
 
-
-Wir nehmen für $L_{2}$ an, dass der erste Buchstabe beliebig ist.
+Wir nehmen für $L_2$ an, dass der erste Buchstabe beliebig ist.
 
 $L_{2} = \{w \in \Sigma^* \mid w_1 \in \Sigma_{\epsilon} \land \forall i \in \mathbb{N} :2 \leq i \leq \left| w \right| \implies$
 
@@ -69,36 +69,105 @@ $(w_{i-1} = \leftarrow \implies w_i = \leftarrow \lor w_i = \downarrow) \land$
 $(w_{i-1} = \downarrow \implies w_i = \downarrow \lor w_i = \rightarrow) \land$
 
 $(w_{i-1} = \rightarrow \implies w_i = \rightarrow \lor w_i = \uparrow )\}$
+\\
+\\
+\\
+\\
 
-Wir nehmen an, dass der erste Buchstabe $\rightarrow$ sein muss und dass die 
+Wir nehmen für $L_3$ an, dass der erste und letzte Buchstabe $\rightarrow$ sein 
 
-"Dächer" nicht die Breite 0 haben dürfen.
+müssen und dass die"Dächer" nicht die Breite 0 haben dürfen, sofern $w \neq \epsilon$.
 
 $L_{3} = \{w \in \Sigma^* \mid (\forall u,v \in \Sigma^* :
-uv = w : \left| u \right|_\uparrow \geq \left| u \right|_\downarrow) \}$
+uv = w : \left| u \right|_\uparrow \geq \left| u \right|_\downarrow) \land $
+
+$(w = \epsilon \lor (w_1 = \rightarrow \land w_{|w|} = \rightarrow \land $
+
+$\forall i_1 , i_2 \in \mathbb{N}: (1 < i_1 < i_2 < |w| \land w_{i_1} = \uparrow
+\land w_{i_2} = \downarrow ) \implies$
+
+$\exists j \in \mathbb{N}: i_1 < j < i_2 \land w_j = \rightarrow ) \}$
 \\
 b)
 
-$L_{1} = (\rightarrow^* \downarrow^*)^* $, was nach 2.42 regulär ist.
+$L_{1} = (\rightarrow (\rightarrow \downarrow)^*)^* $, was nach 2.42 regulär ist.
 
-$L_{2} = (\downarrow^+\rightarrow^+\uparrow^+\leftarrow^+)^+ 
-\mid (\rightarrow^+\uparrow^+\leftarrow^+\downarrow^+)^+
-\mid (\uparrow^+\leftarrow^+\downarrow^+\rightarrow^+)^+
-\mid (\leftarrow^+\downarrow^+\rightarrow^+\uparrow^+)^+ $, 
+$L_{2} = (\downarrow^+\rightarrow^+\uparrow^+\leftarrow^+)^* 
+\mid (\rightarrow^+\uparrow^+\leftarrow^+\downarrow^+)^*
+\mid $
+
+$(\uparrow^+\leftarrow^+\downarrow^+\rightarrow^+)^*
+\mid (\leftarrow^+\downarrow^+\rightarrow^+\uparrow^+)^* $, 
 was nach 2.42 regulär ist.
 
-$L_{3}$ ist nicht regulär, da man die unbeschränkte 'Haushöhe'
-zählen müsste.
+$L_{3}$ ist nicht regulär, da man die unbeschränkte 'Haushöhe'zählen und für
+
+jeden $\uparrow$ einen $\downarrow$ Partner finden müsste.
+\\
+c)
+
+$G_1 = (V_1 , \Sigma_1 , P_1 , S_1) $ mit
+
+$V_1 = \{S,T\}$
+
+$\Sigma_1 = \{ \rightarrow , \downarrow , \epsilon \}$
+
+$P_1 = \{$$
+
+$\quad \quad S \rightarrow \quad \rightarrow T \mid \epsilon ,$
+
+$\quad \quad T \rightarrow \quad \downarrow \rightarrow T \mid \epsilon \}$
+
+$S_1 = {S}$
+\\
+
+$G_2 = (V_2 , \Sigma_2 , P_2 , S_2) $ mit
+
+$V_2 = \{U,L,D,R\}$
+
+$\Sigma_2 = \{\rightarrow , \leftarrow , \uparrow , \downarrow , \epsilon \}$
+
+$P_2 = \{$
+
+$\quad \quad U \rightarrow \quad \uparrow U \mid \uparrow L  \mid \epsilon ,$
+
+$\quad \quad L \rightarrow \quad \leftarrow L \mid \leftarrow D \mid \epsilon ,$
+
+$\quad \quad D \rightarrow \quad \downarrow D \mid \downarrow R \mid \epsilon ,$
+
+$\quad \quad R \rightarrow \quad \rightarrow R \mid \rightarrow U \mid \epsilon \}$
+
+
+$S_2 = \{U, L, D, R\}$
+\\
+
+$G_3 = (V_3 , \Sigma_3 , P_3 , S_3) $ mit
+
+$V_3 = \{S,T,R\}$
+
+$\Sigma_3 = \{\rightarrow , \uparrow , \downarrow \}$
+
+$P_3 = \{$
+
+$\quad \quad S \rightarrow \quad S T S \mid R ,$
+
+$\quad \quad T \rightarrow \quad \uparrow T \downarrow \mid \uparrow R \downarrow }$
+
+$\quad \quad R \rightarrow \quad \rightarrow \mid \rightarrow R\}$
+
+$S_3 = \{S\}$
+\\
+\\
 
 \section{Hausaufgabe 4}
 
 a)
 
-G = (V, $\Sigma$, P, S) 
+G = (V, $\Sigma$, P, S) mit
 
-V = {S} 
+$V = \{S\}$ 
 
-$\Sigma$ = {0,1} 
+$\Sigma = \{0,1, \epsilon \} $
 
 P: $S \rightarrow 0S1 \mid 1S0 \mid \epsilon$
 
@@ -106,22 +175,22 @@ S = S
 \\
 b)
 
-G = (V, $\Sigma$, P, S) 
+G = (V, $\Sigma$, P, S) mit
 
-V = {S,T,U,V} 
+$V = \{S,T,U,V\}$ 
 
-$\Sigma$ = {a,b,c,d} 
+$\Sigma = \{a,b,c,d, \epsilon\}$ 
 
-P:  
+$P: \{$  
 
-$S \rightarrow aSd \mid T \mid U$
+$\quad \quad S \rightarrow \quad aSd \mid T \mid U ,$
 
-$T \rightarrow aTc \mid V$
+$\quad \quad T \rightarrow \quad aTc \mid V ,$
 
-$U \rightarrow bUd \mid V$
+$\quad \quad U \rightarrow \quad bUd \mid V ,$
 
-$V \rightarrow bVc$
+$\quad \quad V \rightarrow \quad bVc \mid \epsilon \}$
 
-S = S 
+$S = \{S\}$ 
 
 \end{document}
