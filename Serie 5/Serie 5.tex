@@ -19,7 +19,37 @@
 
 \section{Hausaufgabe 1}
 
-TODO
+Voraussetzung: Sei $L_1 = \{a^{n \cdot m} \mid n,m \in N_{>1} \} \cup \{a, \epsilon\}$ eine Sprache.\\
+Behauptung: $L_1$ ist nicht regulär.\\
+\\
+Beweis: (mittels Pumping-Lemma)\\
+Da reguläre Sprachen abgeschlossen gegenbüber Komplementbildung sind,\\
+zeige dass $\overline{L_1}$ nicht regulär ist. Es gilt offenbar:\\
+$\overline{L_1} = \{a^n \mid \textrm{n ist Primzahl}\}$\\
+Sei $p \in \mathbb{N}$ beliebig und $w \in \overline{L_1}$. Wir unterscheiden:\\
+(1) $|w| = (p+1)! + 1$\\
+(2) $|w| = (p+1)! + (p+ 1) + 1$\\
+da wir wissen, dass mindestens eine dieser beiden Zahlen eine Primzahl ist.\\
+Demnach existiert zwischen diesen zwei Zahlen eine Lücke mit Größe $\geq p + 1$.\\
+Seien $x,y,z \in \Sigma^*$ ,sodass gilt: $w = xyz \land |y| > 0 \land |xy| \leq p$. Es folgt:\\
+Zu (1):\\
+Behaupte: Es gilt $xy^2z \notin \overline{L_1$.\\
+Beweis: Anhand der Definition von $|w|$ wissen wir, dass $|w| -1$ geteilt wird\\
+von allen $n \in \mathbb{N}$ für, die gilt $2\leq n \leq p+1$. Somit folgt, dass für alle diese n gilt:\\
+$n|(p+1! +n) \Leftrightarrow n|((|w| -1) + n \Leftrightarrow n| (|w| + (n-1))$\\
+Berücksichtigen wir nun die -1 für unsere Abschätzung von n folgt:\\
+$\forall n \in \mathbb{n}: 1 \leq n \leq p \implies |w| + n \quad \textrm{nicht prim}$\\
+Woraus folgt, dass für y mit $1 \leq |y| \leq p$ gilt, dass $xy^2z \notin \overline{L_1}$ .\\
+Somit ist $\overline{L_1}$ nicht regulär und auch $L_1$ nicht regulär.\\
+Zu(2):\\
+Behaupte: Es gilt $xy^0z \notin \overline{L_1}$.\\
+Beweis: Anhand der Definition von $|w|$ wissen wir, dass $|w| -1$ geteilt wird\\
+von $p+1$. Desweiteren wissen wir, dass für alle $n \in \mathbb{N}$ mit $0 \leq n \leq p-1$ gilt:\\
+$((p+1) - n) | ((p+1)! + (p + 1 - n)) \Leftrightarrow ((p+1) -n) | (|w| -1 -n) \Leftrightarrow (p+1) -n | (|w| - (n + 1)$\\
+Hieraus folgt unter Berücksichtigung der +1:\\
+$\forall n \in \mathbb{N}: 1 \leq n \leq p: |w| - n \quad \textrm{nicht prim}$\\
+Woraus folgt, dass für y mit $1 \leq |y| \leq p$ gilt, dass $xy^2z \notin \overline{L_1}$ .\\
+Somit ist $\overline{L_1}$ nicht regulär und auch $L_1$ nicht regulär.\\
 
 \section{Hausaufgabe 2}
 
@@ -76,15 +106,18 @@ $(w_{i-1} = \rightarrow \implies w_i = \rightarrow \lor w_i = \uparrow )\}$
 
 Wir nehmen für $L_3$ an, dass der erste und letzte Buchstabe $\rightarrow$ sein 
 
-müssen und dass die"Dächer" nicht die Breite 0 haben dürfen, sofern $w \neq \epsilon$.
+müssen die "Dächer" nicht die Breite 0 haben dürfen, sofern $w \neq \epsilon$ und
+
+der Abstand zwischen "Häusern" $\geq 1$ ist.
 
 $L_{3} = \{w \in \Sigma^* \mid (\forall u,v \in \Sigma^* :
 uv = w : \left| u \right|_\uparrow \geq \left| u \right|_\downarrow) \land $
 
 $(w = \epsilon \lor (w_1 = \rightarrow \land w_{|w|} = \rightarrow \land $
 
-$\forall i_1 , i_2 \in \mathbb{N}: (1 < i_1 < i_2 < |w| \land w_{i_1} = \uparrow
-\land w_{i_2} = \downarrow ) \implies$
+$\forall i_1 , i_2 \in \mathbb{N}: (1 < i_1 < i_2 < |w| \land (w_{i_1} = \uparrow
+\land w_{i_2} = \downarrow )\lor (w_{i_1} = \downarrow
+\land w_{i_2} = \uparrow )  ) \implies$
 
 $\exists j \in \mathbb{N}: i_1 < j < i_2 \land w_j = \rightarrow ) \}$
 \\
@@ -149,7 +182,7 @@ $\Sigma_3 = \{\rightarrow , \uparrow , \downarrow \}$
 
 $P_3 = \{$
 
-$\quad \quad S \rightarrow \quad S T S \mid R ,$
+$\quad \quad S \rightarrow \quad R T S \mid R ,$
 
 $\quad \quad T \rightarrow \quad \uparrow T \downarrow \mid \uparrow R \downarrow }$
 
